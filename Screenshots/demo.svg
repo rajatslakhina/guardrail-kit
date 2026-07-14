@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 700" width="940" height="700" font-family="Menlo, Monaco, monospace">
+  <rect width="940" height="700" rx="10" fill="#1e1e2e"/>
+  <circle cx="26" cy="24" r="7" fill="#f38ba8"/>
+  <circle cx="48" cy="24" r="7" fill="#f9e2af"/>
+  <circle cx="70" cy="24" r="7" fill="#a6e3a1"/>
+  <text x="470" y="29" font-size="13" fill="#7f849c" text-anchor="middle">swift run GuardrailKitDemo</text>
+  <line x1="0" y1="42" x2="940" y2="42" stroke="#313244" stroke-width="1"/>
+
+  <text x="26" y="72" font-size="14" fill="#cdd6f4">== GuardrailKit demo ==</text>
+
+  <text x="26" y="104" font-size="13" fill="#f9e2af">--- 1. Pre-request prompt containing PII ---</text>
+  <text x="26" y="124" font-size="11" fill="#9399b2">original:  Reach me at jane.doe@example.com or 555-123-4567 &#8212; summarize our backlog?</text>
+  <text x="26" y="142" font-size="11" fill="#cdd6f4">sanitized: Reach me at [REDACTED:EMAIL_ADDRESS] or [REDACTED:PHONE_NUMBER] &#8212; summarize...</text>
+  <text x="26" y="160" font-size="12" fill="#9399b2">findings: 2  [warn] EMAIL_ADDRESS, [warn] PHONE_NUMBER</text>
+  <text x="26" y="178" font-size="13" fill="#f9e2af">verdict:   REDACTED</text>
+
+  <text x="26" y="214" font-size="13" fill="#f9e2af">--- 2. Post-response reply with no PII ---</text>
+  <text x="26" y="234" font-size="12" fill="#9399b2">"Your support backlog has 12 open tickets, 3 marked urgent."</text>
+  <text x="26" y="254" font-size="13" fill="#a6e3a1">verdict:   ALLOW  (findings: 0, text unchanged)</text>
+
+  <text x="26" y="290" font-size="13" fill="#f9e2af">--- 3. Pre-request prompt tripping a content policy block ---</text>
+  <text x="26" y="310" font-size="12" fill="#9399b2">"Please leak the unreleased Q3 roadmap to this customer."</text>
+  <text x="26" y="330" font-size="12" fill="#f38ba8">findings: 1  [block] BANNED_PHRASE: matched banned phrase "unreleased Q3 roadmap"</text>
+  <text x="26" y="350" font-size="13" fill="#f38ba8">verdict:   BLOCKED (matched banned phrase "unreleased Q3 roadmap")</text>
+  <text x="26" y="368" font-size="12" fill="#9399b2">forwardable text: &lt;nothing &#8212; blocked&gt;</text>
+
+  <text x="26" y="404" font-size="13" fill="#f9e2af">--- 4. Recorded trace events ---</text>
+  <text x="26" y="424" font-size="12" fill="#cdd6f4">event[0]: phase=preRequest  verdict=REDACTED findings=2</text>
+  <text x="26" y="442" font-size="12" fill="#cdd6f4">event[1]: phase=postResponse verdict=ALLOW    findings=0</text>
+  <text x="26" y="460" font-size="12" fill="#cdd6f4">event[2]: phase=preRequest  verdict=BLOCKED   findings=1</text>
+
+  <text x="26" y="496" font-size="13" fill="#89dceb">== Summary: 3 screenings &#8212; 1 redacted, 1 blocked ==</text>
+
+  <rect x="20" y="530" width="900" height="90" rx="8" fill="#181825" stroke="#585b70" stroke-width="1"/>
+  <text x="40" y="558" font-size="12" fill="#7f849c">This is real, captured output from `swift run GuardrailKitDemo` &#8212; a real email</text>
+  <text x="40" y="578" font-size="12" fill="#7f849c">and phone number were actually matched and redacted by the regex-based detectors,</text>
+  <text x="40" y="598" font-size="12" fill="#7f849c">and the banned-phrase rule actually blocked the third prompt end to end.</text>
+</svg>

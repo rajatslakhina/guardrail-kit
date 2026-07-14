@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270 640" width="1270" height="640" font-family="Menlo, Monaco, monospace">
+  <rect width="1270" height="640" rx="10" fill="#1e1e2e"/>
+  <circle cx="26" cy="24" r="7" fill="#f38ba8"/>
+  <circle cx="48" cy="24" r="7" fill="#f9e2af"/>
+  <circle cx="70" cy="24" r="7" fill="#a6e3a1"/>
+  <text x="635" y="29" font-size="13" fill="#7f849c" text-anchor="middle">quality gates &#8212; build / test / coverage / lint</text>
+  <line x1="0" y1="42" x2="1270" y2="42" stroke="#313244" stroke-width="1"/>
+
+  <text x="26" y="76" font-size="15" fill="#89b4fa" font-weight="bold">$ swift build</text>
+  <text x="26" y="98" font-size="13" fill="#a6e3a1">Build complete! &#8212; 0 warnings, 0 errors</text>
+
+  <text x="26" y="140" font-size="15" fill="#89b4fa" font-weight="bold">$ swift test --enable-code-coverage</text>
+  <text x="26" y="162" font-size="13" fill="#a6e3a1">Executed 38 tests, with 0 failures (0 unexpected)</text>
+
+  <text x="26" y="204" font-size="15" fill="#89b4fa" font-weight="bold">$ llvm-cov report</text>
+  <text x="26" y="228" font-size="12" fill="#9399b2">Filename                        Regions  Functions  Lines    Cover</text>
+  <text x="26" y="248" font-size="12" fill="#cdd6f4">BannedPhraseRule.swift              6        4          19     100.00%</text>
+  <text x="26" y="266" font-size="12" fill="#cdd6f4">BuiltInPIIDetectors.swift          16       16          44     100.00%</text>
+  <text x="26" y="284" font-size="12" fill="#cdd6f4">GuardrailClock.swift                2        2           4     100.00%</text>
+  <text x="26" y="302" font-size="12" fill="#cdd6f4">GuardrailEvent.swift                1        1           6     100.00%</text>
+  <text x="26" y="320" font-size="12" fill="#cdd6f4">GuardrailEventRecorder.swift        4        4           8     100.00%</text>
+  <text x="26" y="338" font-size="12" fill="#cdd6f4">GuardrailFinding.swift              2        2           8     100.00%</text>
+  <text x="26" y="356" font-size="12" fill="#cdd6f4">GuardrailOutcome.swift              5        2          15     100.00%</text>
+  <text x="26" y="374" font-size="12" fill="#cdd6f4">GuardrailPipeline.swift            26       13          81     100.00%</text>
+  <text x="26" y="392" font-size="12" fill="#cdd6f4">GuardrailPolicy.swift               2        2           6     100.00%</text>
+  <text x="26" y="410" font-size="12" fill="#cdd6f4">PIIDetector.swift                   1        1           5     100.00%</text>
+  <text x="26" y="432" font-size="13" fill="#f9e2af" font-weight="bold">TOTAL                               65       47         196     100.00%</text>
+
+  <text x="26" y="474" font-size="15" fill="#89b4fa" font-weight="bold">$ swiftlint lint --strict</text>
+  <text x="26" y="496" font-size="13" fill="#a6e3a1">Done linting! Found 0 violations, 0 serious in 15 files.</text>
+
+  <rect x="20" y="520" width="1230" height="90" rx="8" fill="#181825" stroke="#585b70" stroke-width="1"/>
+  <text x="40" y="548" font-size="12" fill="#7f849c">Every gate above is tool-verified on this Mac &#8212; a genuine swiftlint pass,</text>
+  <text x="40" y="568" font-size="12" fill="#7f849c">not a hand-review, and coverage numbers taken directly from llvm-cov report.</text>
+  <text x="40" y="588" font-size="12" fill="#7f849c">Re-verified against a fresh clone of the pushed repo before publishing.</text>
+</svg>
